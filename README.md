@@ -7,7 +7,12 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-![Alt text](https://i.ibb.co/30vqVsH/tepm9-47ujc.png "screen shot")
+![Alt text](https://i.ibb.co/FWFQt5h/Screenshot-2020-07-04-TV-4.png "screen shot")
+![Alt text](https://i.ibb.co/5Rzj1Qq/Screenshot-2020-07-04-TV-3.png "screen shot")
+![Alt text](https://i.ibb.co/sjWxBzS/Screenshot-2020-07-04-TV-2.png "screen shot")
+![Alt text](https://i.ibb.co/yghVZVS/Screenshot-2020-07-04-TV-1.png "screen shot")
+![Alt text](https://i.ibb.co/J3qSDFd/Screenshot-2020-07-04-TV.png "screen shot")
+![Alt text](https://i.ibb.co/Cm3fLZn/Screenshot-2020-07-04-Viewing-Episodes.png "screen shot")
 
 
 ## About Laravel
