@@ -14,6 +14,9 @@
 ![Alt text](https://i.ibb.co/J3qSDFd/Screenshot-2020-07-04-TV.png "screen shot")
 ![Alt text](https://i.ibb.co/Cm3fLZn/Screenshot-2020-07-04-Viewing-Episodes.png "screen shot")
 
+## admin area
+1- It is preferable to import DB for the project in the project (dump.sql)
+2- to create admin user run this command `php artisan voyager:admin your@email.com --create`
 
 ## About Laravel
 
