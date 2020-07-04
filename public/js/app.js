@@ -1914,22 +1914,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['episode'],
   data: function data() {
     return {
-      totalDislike: ''
+      totalDislike: '',
+      processing: false
     };
   },
   methods: {
     disLikeEpisode: function disLikeEpisode() {
       var _this = this;
 
+      if (this.processing === true) {
+        return;
+      }
+
+      this.processing = true;
       axios.post('/dislike/' + this.episode).then(function (response) {
         _this.getDislike();
 
-        $('#success').html(response.data.message);
+        _this.processing = false;
       })["catch"]();
     },
     getDislike: function getDislike() {
@@ -2040,22 +2045,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['episode'],
   data: function data() {
     return {
-      totallike: ''
+      totallike: '',
+      processing: false
     };
   },
   methods: {
     likeEpisode: function likeEpisode() {
       var _this = this;
 
+      if (this.processing === true) {
+        return;
+      }
+
+      this.processing = true;
       axios.post('/like/' + this.episode).then(function (response) {
         _this.getlike();
 
-        $('#success').html(response.data.message);
+        _this.processing = false;
       })["catch"]();
     },
     getlike: function getlike() {
@@ -37618,9 +37628,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("p", { attrs: { id: "success" } }),
-    _vm._v(" "),
+  return _c("div", { staticStyle: { display: "inline-table" } }, [
     _c("a", { attrs: { href: "http://" } }, [
       _c("i", {
         staticClass: "fa fa-thumbs-down",
@@ -37735,9 +37743,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("p", { attrs: { id: "success" } }),
-    _vm._v(" "),
+  return _c("div", { staticStyle: { display: "inline-table" } }, [
     _c("a", { attrs: { href: "http://" } }, [
       _c("i", {
         staticClass: "fa fa-thumbs-up",

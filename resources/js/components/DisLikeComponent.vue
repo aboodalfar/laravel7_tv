@@ -1,6 +1,5 @@
 <template>
-    <div class="container">
-        <p id="success"></p>
+    <div  style="display:inline-table">
        <a href="http://"><i @click.prevent="disLikeEpisode" class="fa fa-thumbs-down" aria-hidden="true"></i>({{ totalDislike }})</a>
     </div>
 </template>
@@ -11,14 +10,19 @@
         data(){
             return {
                 totalDislike:'',
+                processing: false
             }
         },
         methods:{
             disLikeEpisode(){
+               if (this.processing === true) {
+                    return;
+                } 
+                this.processing = true;
                 axios.post('/dislike/'+this.episode)
                 .then(response =>{
                     this.getDislike()
-                    $('#success').html(response.data.message)
+                    this.processing = false
                 })
                 .catch()
             },
