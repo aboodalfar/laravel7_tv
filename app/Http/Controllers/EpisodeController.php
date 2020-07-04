@@ -39,9 +39,13 @@ class EpisodeController extends Controller
     
     public function like($id) {
         $episodeLike = EpisodeLike::firstOrNew(['episode_id' => $id,'user_id'=>Auth::id()]);
-        if(is_null($episodeLike->status) || $episodeLike->status ==0){
+        if(is_null($episodeLike->status)){
             $episode = Episode::find($id);
             $episode->increment('total_likes');
+        }elseif($episodeLike->status ==0){
+            $episode = Episode::find($id);
+            $episode->increment('total_likes');
+            $episode->decrement('total_dislikes');
         }
         $episodeLike->status = 1;
         $episodeLike->save();
@@ -59,9 +63,13 @@ class EpisodeController extends Controller
     
     public function dislike($id) {
         $episodeLike = EpisodeLike::firstOrNew(['episode_id' => $id,'user_id'=>Auth::id()]);
-        if(is_null($episodeLike->status) || $episodeLike->status ==1){
+        if(is_null($episodeLike->status)){
             $episode = Episode::find($id);
             $episode->increment('total_dislikes');
+        }elseif($episodeLike->status ==1){
+            $episode = Episode::find($id);
+            $episode->increment('total_dislikes');
+            $episode->decrement('total_likes');
         }
         $episodeLike->status = 0;
         $episodeLike->save();
@@ -69,4 +77,4 @@ class EpisodeController extends Controller
             'message'=>'Thanks',
         ]);
     }
-}
+    }

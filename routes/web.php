@@ -22,9 +22,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/episode/{id}', 'EpisodeController@view')->name('view-episode');
+//like routes
 Route::post('/like','EpisodeController@getlike');
 Route::post('/like/{id}','EpisodeController@like');
-Route::post('/dislike/{id}','EpisodeController@dislike');
 
 //dislike routes
 Route::post('/dislike','EpisodeController@getDislike');
