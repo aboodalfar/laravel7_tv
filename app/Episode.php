@@ -36,11 +36,20 @@ class Episode extends Model
 //    }
     
     
+    /**
+     * 
+     * @param type $query
+     * @return type
+     */
     public function scopeActive($query)
     {
         return $query->where('airing_time','<', date('Y-m-d H:i:s'))->orderBy('id', 'DESC');
     }
     
+    /**
+     * 
+     * @return type
+     */
     public function seriesId() {
         return $this->belongsTo(Series::class);
     }

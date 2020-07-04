@@ -16,6 +16,13 @@ class SeriesFollowing extends Model
         'series_id', 'user_id', 'status'
     ];
     
+    /**
+     * 
+     * @param type $query
+     * @param type $series_id
+     * @param type $user_id
+     * @return type
+     */
     public function scopeIsfollowing($query,$series_id,$user_id)
     {
         return $query->where([

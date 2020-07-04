@@ -19,6 +19,11 @@ class SeriesController extends Controller
     
     const SEARCH_LIMIT=10;
     
+    /**
+     * search for series
+     * @param Request $request
+     * @return type
+     */
     public function search(Request $request)
     {
         $term = trim($request->q);
@@ -26,6 +31,11 @@ class SeriesController extends Controller
         return view('series.search', compact('series'));
     }
     
+    /**
+     * view detils series
+     * @param type $id
+     * @return type
+     */
     public function view($id) {
         $serie = Series::with('episodes')->find($id);
         $user_id = Auth::id();
@@ -33,6 +43,11 @@ class SeriesController extends Controller
         return view('series.episodes', compact('serie','isfollowing','id'));
     }
     
+    /**
+     * follow button
+     * @param type $id
+     * @return \Illuminate\Http\Response
+     */
     public function follow($id) {
         $follow = SeriesFollowing::firstOrNew(['series_id' => $id,'user_id'=>Auth::id()]);
         if(is_null($follow->status) || $follow->status ===0){

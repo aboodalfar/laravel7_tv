@@ -30,6 +30,11 @@ class EpisodeController extends Controller
         return view('episode.view', compact('episode'));
     }
     
+    /**
+     * get count to likes for episode
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
     public function getlike(Request $request){
         $episode = Episode::find($request->get('episode'));
         return response()->json([
@@ -37,6 +42,11 @@ class EpisodeController extends Controller
         ]);
     }
     
+    /**
+     * like episode
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
     public function like($id) {
         $episodeLike = EpisodeLike::firstOrNew(['episode_id' => $id,'user_id'=>Auth::id()]);
         if(is_null($episodeLike->status)){
@@ -54,13 +64,22 @@ class EpisodeController extends Controller
         ]);
     }
     
+    /**
+     * get count to dislikes for episode 
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
     public function getDislike(Request $request) {
         $episode = Episode::find($request->get('episode'));
         return response()->json([
             'total'=>$episode->total_dislikes,
         ]);
     }
-    
+    /**
+     * dislike episode
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
     public function dislike($id) {
         $episodeLike = EpisodeLike::firstOrNew(['episode_id' => $id,'user_id'=>Auth::id()]);
         if(is_null($episodeLike->status)){
